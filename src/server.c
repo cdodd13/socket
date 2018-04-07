@@ -45,7 +45,15 @@ int main(int argc, char const *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    int rxVal = 1;
+    valread = read(new_socket, buffer, 1024);
+    for(int i = 0; i < 10; i++) {
+        printf("%i\n", buffer[i]);
+    }
+    int txVal = 1;
+    send(new_socket, &txVal, sizeof(txVal), 0);
+    printf("sent %i\n", txVal);
+
+/*    int rxVal = 1;
     int txVal = 1;
     int count = 1;
     while(count++ <= 100) {
@@ -55,6 +63,7 @@ int main(int argc, char const *argv[]) {
         txVal = rxVal;
         send(new_socket, &txVal, sizeof(txVal), 0);
     }
+*/
 //    send(new_socket, hello, strlen(hello), 0);
 //    printf("Hello message sent\n");
     }

@@ -9,7 +9,7 @@ SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY "..")
 file(GLOB_RECURSE C_SRC ${PROJECT_SOURCE_DIR}/src/*.c)
 
 # Set compilation flags and compilers
-set(CMAKE_C_FLAGS "-O3 -Wextra")
+set(CMAKE_C_FLAGS "-std=c11 -O3 -Wextra")
 set(CMAKE_C_COMPILER gcc)
 
 # Add executables
