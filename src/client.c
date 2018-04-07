@@ -34,7 +34,26 @@ int main(int argc, char const *argv[]) {
         return -1;
     }
 
-    int txVal = 1;
+    int maxIndex = 10;
+    int txBuffer[10];
+    for(int i = 0; i < maxIndex; i++) {
+        txBuffer[i] = i;
+        printf("%i\n", i);
+    }
+//    int txVal;
+//    for(int j = 0; j < maxIndex; j++) {
+//        txVal = txBuffer[j];
+//        printf("%i\n", txVal);
+//        printf("%i\n", txBuffer[j]);
+//    }
+
+    send(sock, txBuffer, maxIndex, 0);
+    printf("sent txBuffer\n");
+    valread = read(sock, buffer, 1024);
+    int rxVal = *buffer;
+    printf("%i\n", rxVal);
+
+/*    int txVal = 1;
     int rxVal = 1;
     int count = 1;
     while(count <= 100) {
@@ -45,7 +64,7 @@ int main(int argc, char const *argv[]) {
         rxVal = *buffer;
         count += 1;
     }
-
+*/
 //    send(sock, hello, strlen(hello), 0);
 //    printf("Hello message sent\n");
 //    valread = read(sock, buffer, 1024);
